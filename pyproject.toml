@@ -1,0 +1,44 @@
+[project]
+name = "test"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "alembic>=1.18.1",
+    "anyio>=4.12.1",
+    "asyncpg>=0.31.0",
+    "bcrypt>=5.0.0",
+    "fastapi>=0.128.0",
+    "passlib>=1.7.4",
+    "pydantic>=2.12.5",
+    "pyjwt>=2.10.1",
+    "python-multipart>=0.0.21",
+    "sqlalchemy>=2.0.46",
+    "uvicorn[standard]>=0.40.0",
+]
+
+[dependency-groups]
+dev = [
+    "bandit>=1.9.3",
+    "black>=26.1.0",
+    "hypothesis>=6.150.2",
+    "pytest>=9.0.2",
+    "ruff>=0.14.13",
+    "semgrep>=1.149.0",
+]
+
+[tool.ruff]
+line-length = 88
+target-version = "py312"
+
+[tool.black]
+line-length = 88
+target-version = ['py312']
+
+[tool.pytest.ini_options]
+addopts = "--strict-markers"
+testpaths = ["tests"]
+
+[tool.bandit]
+exclude_dirs = ["tests"]
